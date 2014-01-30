@@ -25,10 +25,10 @@
             </div>
             {% if loggedInUser %}
               <div class="dropdown dropdown-signed-in right">
-                <select>
-                  <option value="Welcome Zahra" selected="selected">Welcome {{ loggedInUser }}</option>
-                  <option id="logout" value="Sign Out">Sign Out</option>
-                  <option value="Settings">Settings</option>
+                <select class="js-user-dropdown">
+                  <option selected="selected">Welcome {{ loggedInUser }}</option>
+                  <option id="logout">Sign Out</option>
+                  <option class="js-navigate" value="{{ url('settings') }}">Settings</option>
                 </select>
                 <span class="arrow-down"></span>
               </div>
@@ -54,8 +54,8 @@
               </div>
               <div class="dropdown dropdown-signed-in right">
                 <select>
-                  <option id="login" value="Sign In">Sign In</option>
-                  <option value="Create Account">Create Account</option>
+                  <option id="login">Sign In</option>
+                  <option>Create Account</option>
                 </select>
                 <span class="arrow-down"></span>
               </div>
@@ -120,6 +120,7 @@
     <script src="https://login.persona.org/include.js"></script>
     <script src="{{ static('/js/jquery.min.js') }}"></script>
     <script src="{{ static('/js/nunjucks.min.js') }}"></script>
+    <script src="{{ static('/js/common.js') }}"></script>
     <script src="{{loginScriptUrl}}"></script>
   {%- endblock %}
 </body>
